@@ -10,6 +10,8 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     alignItems: 'center',
     elevation: 2,
+    width: 225,
+    height: 285,
   },
   cardMachinePicture: {
     width: 120,
@@ -29,6 +31,13 @@ const styles = StyleSheet.create({
   addToCartButton: {
     marginTop: 16,
     backgroundColor: '#00c700',
+    borderRadius: 37,
+    paddingVertical: 5,
+    paddingHorizontal: 14,
+  },
+  removeFromCartButton: {
+    marginTop: 16,
+    backgroundColor: '#dc3545',
     borderRadius: 37,
     paddingVertical: 5,
     paddingHorizontal: 14,

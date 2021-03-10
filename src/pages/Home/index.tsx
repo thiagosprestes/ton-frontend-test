@@ -2,6 +2,7 @@ import React from 'react';
 
 import {FlatList, Image, Text, View} from 'react-native';
 import {RectButton} from 'react-native-gesture-handler';
+import {useDispatch, useSelector} from 'react-redux';
 
 import styles from './styles';
 
@@ -9,9 +10,21 @@ import items from '../../utils/db.json';
 
 import CardMachine from '../../interfaces/CardMachine';
 
+import {addCartItem, removeCartItem} from '../../redux/actions/cartActions';
+
+import {RootState} from '../../redux/reducers';
+
 function Home() {
+  const cartItems = useSelector((state: RootState) => state.cart.data);
+
+  const dispatch = useDispatch();
+
   function handleAddToCart(item: CardMachine) {
-    console.log(item);
+    dispatch(addCartItem(item));
+  }
+
+  function handleRemoveFromCart(id: number) {
+    dispatch(removeCartItem(id));
   }
 
   return (
@@ -35,13 +48,23 @@ function Home() {
                 currency: 'BRL',
               }).format(item.value)}
             </Text>
-            <RectButton
-              onPress={() => handleAddToCart(item)}
-              style={styles.addToCartButton}>
-              <Text style={styles.addToCartButtonText}>
-                Adicionar ao carrinho +
-              </Text>
-            </RectButton>
+            {cartItems.find((cartItem) => cartItem.id === item.id) ? (
+              <RectButton
+                onPress={() => handleRemoveFromCart(item.id)}
+                style={styles.removeFromCartButton}>
+                <Text style={styles.addToCartButtonText}>
+                  Remover do carrinho
+                </Text>
+              </RectButton>
+            ) : (
+              <RectButton
+                onPress={() => handleAddToCart(item)}
+                style={styles.addToCartButton}>
+                <Text style={styles.addToCartButtonText}>
+                  Adicionar ao carrinho +
+                </Text>
+              </RectButton>
+            )}
           </View>
         )}
         keyExtractor={(item) => String(item.id)}

@@ -1,7 +1,9 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    flex: 1,
+  },
   itemsList: {paddingHorizontal: 10},
   cardMachine: {
     backgroundColor: '#fff',
@@ -29,13 +31,26 @@ const styles = StyleSheet.create({
     color: '#000',
   },
   removeItem: {
-    backgroundColor: 'red',
+    backgroundColor: '#dc3545',
     borderRadius: 50,
     height: 45,
     width: 45,
     alignItems: 'center',
     justifyContent: 'center',
     marginLeft: 'auto',
+  },
+  emptyCart: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1,
+  },
+  emptyCartText: {
+    fontFamily: 'GothamRounded-Bold',
+    fontSize: 26,
+    color: '#b9bbb6',
+    textAlign: 'center',
+    width: 400,
+    marginTop: 20,
   },
 });
 

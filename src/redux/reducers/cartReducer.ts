@@ -10,7 +10,7 @@ export default function cartReducer(
 ) {
   switch (action.type) {
     case 'ADD_ITEM':
-      return {...state, data: [...state.data, action.item]};
+      return {...state, data: [action.item, ...state.data]};
 
     case 'REMOVE_ITEM':
       const filteredItems = state.data.filter((item) => item.id !== action.id);

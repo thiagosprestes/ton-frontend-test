@@ -1,17 +1,24 @@
 import React from 'react';
 
+import {Text, View} from 'react-native';
+
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+
+import {useSelector} from 'react-redux';
 
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import Home from './pages/Home';
 import Cart from './pages/Cart';
-import {Text, View} from 'react-native';
+
+import {RootState} from './redux/reducers';
 
 const Stack = createStackNavigator();
 
 export default function Routes() {
+  const items = useSelector((state: RootState) => state.cart.data);
+
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -31,27 +38,29 @@ export default function Routes() {
                 color="#fff"
                 onPress={() => navigation.navigate('Cart')}
               />
-              <View
-                style={{
-                  backgroundColor: 'red',
-                  borderRadius: 50,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  position: 'absolute',
-                  top: 5,
-                  right: -10,
-                  height: 20,
-                  width: 20,
-                }}>
-                <Text
+              {items.length > 0 && (
+                <View
                   style={{
-                    color: '#fff',
-                    fontFamily: 'GothamRounded-Bold',
-                    fontSize: 11,
+                    backgroundColor: '#dc3545',
+                    borderRadius: 50,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    position: 'absolute',
+                    top: 5,
+                    right: -10,
+                    height: 20,
+                    width: 20,
                   }}>
-                  1
-                </Text>
-              </View>
+                  <Text
+                    style={{
+                      color: '#fff',
+                      fontFamily: 'GothamRounded-Bold',
+                      fontSize: 11,
+                    }}>
+                    {items.length}
+                  </Text>
+                </View>
+              )}
             </>
           ),
           headerRightContainerStyle: {
