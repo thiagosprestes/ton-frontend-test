@@ -1,16 +1,7 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * Generated with the TypeScript template
- * https://github.com/react-native-community/react-native-template-typescript
- *
- * @format
- */
-
 import React from 'react';
 
 import {StatusBar} from 'react-native';
+import {Provider} from 'react-redux';
 
 import 'react-native-gesture-handler';
 
@@ -19,11 +10,15 @@ import 'intl/locale-data/jsonp/pt-BR';
 
 import Routes from './routes';
 
+import store from './redux/store';
+
 const App = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" backgroundColor="#00bf00" />
-      <Routes />
+      <Provider store={store}>
+        <Routes />
+      </Provider>
     </>
   );
 };
