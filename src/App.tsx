@@ -14,6 +14,9 @@ import {StatusBar} from 'react-native';
 
 import 'react-native-gesture-handler';
 
+import 'intl';
+import 'intl/locale-data/jsonp/pt-BR';
+
 import Routes from './routes';
 
 const App = () => {

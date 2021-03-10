@@ -15,15 +15,32 @@ function Home() {
   }
 
   return (
-    <View>
+    <View style={styles.container}>
       <FlatList
+        style={styles.itemsList}
+        columnWrapperStyle={{justifyContent: 'space-between'}}
+        contentContainerStyle={{paddingTop: 20}}
+        numColumns={2}
         data={items}
         renderItem={({item}) => (
-          <View>
-            <Image source={{uri: item.picture}} />
-            <Text>{item.value}</Text>
-            <RectButton onPress={() => handleAddToCart(item)}>
-              <Text>Adicionar ao carrinho +</Text>
+          <View style={styles.cardMachine}>
+            <Image
+              source={{uri: item.picture}}
+              style={styles.cardMachinePicture}
+            />
+            <Text style={styles.cardMachineName}>{item.name}</Text>
+            <Text style={styles.cardMachineValue}>
+              {Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL',
+              }).format(item.value)}
+            </Text>
+            <RectButton
+              onPress={() => handleAddToCart(item)}
+              style={styles.addToCartButton}>
+              <Text style={styles.addToCartButtonText}>
+                Adicionar ao carrinho +
+              </Text>
             </RectButton>
           </View>
         )}
