@@ -63,9 +63,17 @@ function Cart() {
         <>
           <FlatList
             ListHeaderComponent={() => (
-              <Text style={styles.itemsNumber}>
-                {items.length} produtos adicionados:
-              </Text>
+              <>
+                {items.length === 1 ? (
+                  <Text style={styles.itemsNumber}>
+                    {items.length} produto adicionado:
+                  </Text>
+                ) : (
+                  <Text style={styles.itemsNumber}>
+                    {items.length} produtos adicionados:
+                  </Text>
+                )}
+              </>
             )}
             contentContainerStyle={{paddingVertical: 20}}
             style={styles.itemsList}

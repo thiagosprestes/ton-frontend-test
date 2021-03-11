@@ -10,8 +10,9 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     alignItems: 'center',
     elevation: 2,
-    width: 225,
+    width: '49%',
     height: 285,
+    // flex: 0.5,
   },
   cardMachinePicture: {
     width: 120,

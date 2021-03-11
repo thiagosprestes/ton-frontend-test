@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     opacity: 1,
     padding: 20,
     borderRadius: 8,
-    width: 450,
+    width: '90%',
   },
   buttons: {
     flexDirection: 'row',
