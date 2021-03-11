@@ -15,13 +15,16 @@ import CardMachine from '../../interfaces/CardMachine';
 import {addCartItem, removeCartItem} from '../../redux/actions/cartActions';
 
 import {RootState} from '../../redux/reducers';
+
 import CartItemAlert from '../../components/CartItemAlert';
+import RemoveItemConfirmation from '../../components/RemoveItemConfirmation';
 
 function Home() {
   const [addItemAlertMessage, setAddItemAlertMessage] = useState<string>('');
   const [removeItemAlertMessage, setRemoveItemAlertMessage] = useState<string>(
     '',
   );
+  const [selectedItem, setSelectedItem] = useState<CardMachine>();
 
   const cartItems = useSelector((state: RootState) => state.cart.data);
 
@@ -39,16 +42,22 @@ function Home() {
     }, 5000);
   }
 
-  function handleRemoveFromCart(item: CardMachine) {
-    dispatch(removeCartItem(Number(item.id)));
+  function handleRemoveFromCart() {
+    dispatch(removeCartItem(Number(selectedItem?.id)));
+
+    setSelectedItem(undefined);
 
     setRemoveItemAlertMessage(
-      `O item "${item.name}" foi removido do carrinho com sucesso!`,
+      `O item "${selectedItem?.name!}" foi removido do carrinho com sucesso!`,
     );
 
     setTimeout(() => {
       setRemoveItemAlertMessage('');
     }, 5000);
+  }
+
+  function handleOpenRemoveModal(item: CardMachine) {
+    setSelectedItem(item);
   }
 
   return (
@@ -74,7 +83,7 @@ function Home() {
             </Text>
             {cartItems.find((cartItem) => cartItem.id === item.id) ? (
               <RectButton
-                onPress={() => handleRemoveFromCart(item)}
+                onPress={() => handleOpenRemoveModal(item)}
                 style={styles.removeFromCartButton}>
                 <Text style={styles.addToCartButtonText}>
                   Remover do carrinho <FontAwesome name="close" size={14} />
@@ -98,6 +107,13 @@ function Home() {
       )}
       {removeItemAlertMessage !== '' && (
         <CartItemAlert description={removeItemAlertMessage} type="remove" />
+      )}
+      {selectedItem && (
+        <RemoveItemConfirmation
+          name={selectedItem.name!}
+          removeItem={handleRemoveFromCart}
+          closeModal={() => setSelectedItem(undefined)}
+        />
       )}
     </View>
   );
