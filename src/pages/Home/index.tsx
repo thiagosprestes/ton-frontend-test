@@ -18,9 +18,9 @@ import {RootState} from '../../redux/reducers';
 import CartItemAlert from '../../components/CartItemAlert';
 
 function Home() {
-  const [showAddItemAlert, setShowAddItemAlert] = useState<boolean>(false);
-  const [showRemoveItemAlert, setShowRemoveItemAlert] = useState<boolean>(
-    false,
+  const [addItemAlertMessage, setAddItemAlertMessage] = useState<string>('');
+  const [removeItemAlertMessage, setRemoveItemAlertMessage] = useState<string>(
+    '',
   );
 
   const cartItems = useSelector((state: RootState) => state.cart.data);
@@ -30,20 +30,24 @@ function Home() {
   function handleAddToCart(item: CardMachine) {
     dispatch(addCartItem(item));
 
-    setShowAddItemAlert(true);
+    setAddItemAlertMessage(
+      `O item "${item.name}" foi adicionado ao carrinho com sucesso!`,
+    );
 
     setTimeout(() => {
-      setShowAddItemAlert(false);
+      setAddItemAlertMessage('');
     }, 5000);
   }
 
-  function handleRemoveFromCart(id: number) {
-    dispatch(removeCartItem(id));
+  function handleRemoveFromCart(item: CardMachine) {
+    dispatch(removeCartItem(Number(item.id)));
 
-    setShowRemoveItemAlert(true);
+    setRemoveItemAlertMessage(
+      `O item "${item.name}" foi removido do carrinho com sucesso!`,
+    );
 
     setTimeout(() => {
-      setShowRemoveItemAlert(false);
+      setRemoveItemAlertMessage('');
     }, 5000);
   }
 
@@ -70,7 +74,7 @@ function Home() {
             </Text>
             {cartItems.find((cartItem) => cartItem.id === item.id) ? (
               <RectButton
-                onPress={() => handleRemoveFromCart(item.id)}
+                onPress={() => handleRemoveFromCart(item)}
                 style={styles.removeFromCartButton}>
                 <Text style={styles.addToCartButtonText}>
                   Remover do carrinho <FontAwesome name="close" size={14} />
@@ -89,17 +93,11 @@ function Home() {
         )}
         keyExtractor={(item) => String(item.id)}
       />
-      {showAddItemAlert && (
-        <CartItemAlert
-          description='O item "T1" foi adicionado com sucesso ao carrinho!'
-          type="add"
-        />
+      {addItemAlertMessage !== '' && (
+        <CartItemAlert description={addItemAlertMessage} type="add" />
       )}
-      {showRemoveItemAlert && (
-        <CartItemAlert
-          description='O item "T1" foi removido do carrinho com sucesso!'
-          type="remove"
-        />
+      {removeItemAlertMessage !== '' && (
+        <CartItemAlert description={removeItemAlertMessage} type="remove" />
       )}
     </View>
   );
