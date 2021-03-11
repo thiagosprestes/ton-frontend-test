@@ -56,10 +56,6 @@ function Home() {
     }, 5000);
   }
 
-  function handleOpenRemoveModal(item: CardMachine) {
-    setSelectedItem(item);
-  }
-
   return (
     <View style={styles.container}>
       <FlatList
@@ -83,7 +79,7 @@ function Home() {
             </Text>
             {cartItems.find((cartItem) => cartItem.id === item.id) ? (
               <RectButton
-                onPress={() => handleOpenRemoveModal(item)}
+                onPress={() => setSelectedItem(item)}
                 style={styles.removeFromCartButton}>
                 <Text style={styles.addToCartButtonText}>
                   Remover do carrinho <FontAwesome name="close" size={14} />

@@ -10,14 +10,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 50,
     paddingVertical: 10,
-    paddingHorizontal: 30,
+    paddingHorizontal: 20,
     marginBottom: 16,
+    backgroundColor: '#28a745',
+    flexDirection: 'row',
   },
   description: {
     fontSize: 14,
     fontFamily: 'GothamRounded-Medium',
     color: '#fff',
     textAlign: 'center',
+    marginRight: 8,
   },
 });
 

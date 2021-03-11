@@ -52,6 +52,12 @@ const styles = StyleSheet.create({
     width: 400,
     marginTop: 20,
   },
+  itemsNumber: {
+    fontFamily: 'GothamRounded-Bold',
+    fontSize: 18,
+    color: '#b9bbb6',
+    marginBottom: 10,
+  },
 });
 
 export default styles;
