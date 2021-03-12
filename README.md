@@ -21,7 +21,7 @@ Teste front-end TON
 - [Sobre o projeto](#-Sobre-o-projeto)
 - [Tecnologias utilizadas](#-Tecnologias-utilizadas)
 - [Rodando o projeto](#-Rodando-o-projeto)
-  - [Pré-requisitos](#-Pré-requisitos)
+  - [Pré-requisitos](#-Pre-requisitos)
   - [Rodando o aplicativo](#-Rodando-o-aplicativo)
 
 ## 📃 Sobre o projeto
@@ -44,7 +44,7 @@ Aplicação desenvolvida para testar conhecimentos de front-end, consiste básic
 - <a href="https://react-native.rocketseat.dev/" target="_blank">Ambiente mobile configurado</a>
 - <a href="https://yarnpkg.com/" target="_blank">Yarn</a>
 
-### 💻 Rodando o aplicativo
+### 💻 Rodando-o-aplicativo
 
 Clone o repositório
 
