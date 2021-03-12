@@ -26,31 +26,41 @@ function Home() {
   );
   const [selectedItem, setSelectedItem] = useState<CardMachine>();
 
+  // Lista de itens que já estão no carrinho
   const cartItems = useSelector((state: RootState) => state.cart.data);
 
   const dispatch = useDispatch();
 
+  // Função para adicionar item ao carrinho
   function handleAddToCart(item: CardMachine) {
+    // Adiciona item ao estado do carrinho no redux
     dispatch(addCartItem(item));
 
+    // Dispara mensagem com item que foi adicionado ao carrinho
     setAddItemAlertMessage(
       `O item "${item.name}" foi adicionado ao carrinho com sucesso!`,
     );
 
+    // Remove sobre ação realizada
     setTimeout(() => {
       setAddItemAlertMessage('');
     }, 5000);
   }
 
+  // Função para remover item do carrinho
   function handleRemoveFromCart() {
+    // Remove o item do estado do redux
     dispatch(removeCartItem(Number(selectedItem?.id)));
 
+    // Remove o item selecionado para exclusão do estado
     setSelectedItem(undefined);
 
+    // Adiciona mensagem ao usuário com item que foi removido do carrinho
     setRemoveItemAlertMessage(
       `O item "${selectedItem?.name!}" foi removido do carrinho com sucesso!`,
     );
 
+    // Remove mensagem sobre ação realizada
     setTimeout(() => {
       setRemoveItemAlertMessage('');
     }, 5000);

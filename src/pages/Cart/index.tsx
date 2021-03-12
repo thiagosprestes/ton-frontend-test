@@ -19,6 +19,7 @@ import RemoveItemConfirmation from '../../components/RemoveItemConfirmation';
 import CartItemAlert from '../../components/CartItemAlert';
 
 function Cart() {
+  // Pega os itens do carrinho que estão salvos no reudx
   const items = useSelector((state: RootState) => state.cart.data);
 
   const [selectedItem, setSelectedItem] = useState<CardMachine>();
@@ -28,22 +29,23 @@ function Cart() {
 
   const dispatch = useDispatch();
 
+  // Função responsável por remover um item do carrinho
   function handleRemoveItem() {
+    // Remove o item do estado do redux
     dispatch(removeCartItem(selectedItem?.id!));
 
+    // Remove o item selecionado para exclusão do estado
     setSelectedItem(undefined);
 
+    // Adiciona mensagem ao usuário com item que foi removido do carrinho
     setRemoveItemAlertMessage(
       `O item "${selectedItem?.name!}" foi removido do carrinho com sucesso!`,
     );
 
+    // Fecha mensagem sobre ação realizada
     setTimeout(() => {
       setRemoveItemAlertMessage('');
     }, 5000);
-  }
-
-  function handleOpenRemoveModal(item: CardMachine) {
-    setSelectedItem(item);
   }
 
   return (
@@ -96,7 +98,7 @@ function Cart() {
                 <RectButton
                   testID="removeItemFromListButton"
                   style={styles.removeItem}
-                  onPress={() => handleOpenRemoveModal(item)}>
+                  onPress={() => setSelectedItem(item)}>
                   <FontAwesome name="trash-o" size={25} color="#fff" />
                 </RectButton>
               </View>
