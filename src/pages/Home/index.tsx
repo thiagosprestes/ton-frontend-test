@@ -79,7 +79,7 @@ function Home() {
             </Text>
             {cartItems.find((cartItem) => cartItem.id === item.id) ? (
               <RectButton
-                testID="removeButton"
+                testID="removeItemFromListButton"
                 onPress={() => setSelectedItem(item)}
                 style={styles.removeFromCartButton}>
                 <Text style={styles.addToCartButtonText}>

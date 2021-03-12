@@ -94,6 +94,7 @@ function Cart() {
                   </Text>
                 </View>
                 <RectButton
+                  testID="removeItemFromListButton"
                   style={styles.removeItem}
                   onPress={() => handleOpenRemoveModal(item)}>
                   <FontAwesome name="trash-o" size={25} color="#fff" />
