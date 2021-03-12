@@ -31,7 +31,7 @@ Teste front-end TON
 
 ## 📃 Sobre o projeto
 
-Aplicação desenvolvida para testar conhecimentos de front-end, consiste básicamente em uma aplicação de na qual nos permite salvar itens em um carrinho de compas. A aplicação possui uma tela inicial e uma tela de carrinho, na tela inicial podemos escolher os itens que iremos adicionar ao carrinho e removê-los e na tela do carrinho podemos ver a quantidade de itens adicionados e removê-los.
+Aplicação desenvolvida para testar conhecimentos de front-end, consiste básicamente em uma aplicação na qual nos permite salvar itens em um carrinho de compras. A aplicação possui uma tela inicial e uma tela de carrinho, na tela inicial podemos escolher os itens que iremos adicionar ao carrinho e removê-los, na tela do carrinho podemos ver a quantidade de itens adicionados e também removê-los. Este projeto faz parte do processo seletivo de uma vaga de front-end no <a href="https://www.ton.com.br/" target="_blank">TON</a>.
 
 ## 🛠 Tecnologias utilizadas
 
@@ -49,7 +49,7 @@ Aplicação desenvolvida para testar conhecimentos de front-end, consiste básic
 - <a href="https://react-native.rocketseat.dev/" target="_blank">Ambiente mobile configurado</a>
 - <a href="https://yarnpkg.com/" target="_blank">Yarn</a>
 
-### 💻 Rodando-o-aplicativo
+### 💻 Rodando o aplicativo
 
 Clone o repositório
 
@@ -71,7 +71,7 @@ yarn
 
 ```
 
-Após concluir a instalação das dependências na pasta android que está na raiz do projeto crie um arquivo chamado `local.properties`. Dentro do arquivo adicione o seguinte conteúdo:
+Após concluir a instalação das dependências na pasta `android` que está na raiz do projeto crie um arquivo chamado `local.properties`. Dentro do arquivo adicione o seguinte conteúdo:
 
 ```bash
 
