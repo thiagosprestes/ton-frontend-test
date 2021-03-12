@@ -87,6 +87,7 @@ function Home() {
               </RectButton>
             ) : (
               <RectButton
+                testID="addButton"
                 onPress={() => handleAddToCart(item)}
                 style={styles.addToCartButton}>
                 <Text style={styles.addToCartButtonText}>
