@@ -16,6 +16,11 @@ Teste front-end TON
 
 <br/>
 
+<p align="center">
+<strong>Você pode fazer o download do APK da aplicação <a href="https://raw.githubusercontent.com/thiagosprestes/ton-frontend-test/main/.github/ton-frontend-test.apk">AQUI</a></strong></p>
+
+<br/>
+
 # 📋 Índice
 
 - [Sobre o projeto](#-Sobre-o-projeto)
