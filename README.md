@@ -44,7 +44,7 @@ Aplicação desenvolvida para testar conhecimentos de front-end, consiste básic
 - <a href="https://react-native.rocketseat.dev/" target="_blank">Ambiente mobile configurado</a>
 - <a href="https://yarnpkg.com/" target="_blank">Yarn</a>
 
-### 💻 Rodando-o-aplicativo
+### 💻 Rodando o aplicativo
 
 Clone o repositório
 
