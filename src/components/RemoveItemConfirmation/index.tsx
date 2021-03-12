@@ -19,7 +19,10 @@ function RemoveItemConfirmation({name, removeItem, closeModal}: Props) {
           Tem certeza que deseja remover o item "{name}" do carrinho?
         </Text>
         <View style={styles.buttons}>
-          <RectButton style={styles.remove} onPress={removeItem}>
+          <RectButton
+            style={styles.remove}
+            onPress={removeItem}
+            testID="removeItemButton">
             <Text style={styles.buttonText}>Remover</Text>
           </RectButton>
           <RectButton style={styles.cancel} onPress={closeModal}>
